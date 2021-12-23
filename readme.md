@@ -27,6 +27,9 @@
 2. 포트폴리오 만들기 시 결과를 api 로 리턴
 3. 메인웹의 mysql에 데이터를 배치 처리
 
+## 시연영상
+[Project Demo Video](https://youtu.be/27oo2CBSu_w)
+
 ## 설치되는 패키지
 
 패키지 목록
