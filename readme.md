@@ -1,4 +1,5 @@
-# 프로젝트 개요
+# 맞춤형 주식 포트폴리오 추천 웹서비스 구현 프로젝트
+## 프로젝트 개요
 국민 1인당 1주식 계좌시대가 된 현재.  
 저금리 기조가 장기간 이어지면서 원금 손실이 가능한 고위험 투자임에도 불구하고 고수익을 쫓는 직접 투자자들이 늘어나고 있다.  
 이러한 사회경향을 반영하여 개인의 주식 포트폴리오 구성을 데이터 기반으로 추천해주는 프로젝트를 기획하였다.  <br><br>
@@ -6,7 +7,7 @@
 주로 고액 자산가만을 대상으로 하여 접근성이 낮았던 기존 개인 자산관리(PB) 서비스를 <b>소액의 투자금액</b>으로 <b>내가 원하는 시간과 장소</b>에서 <b>데이터 기반의 객관적인 추천</b>을 받을 수 있다는 것이 큰 장점이다.<br><br>
 ![image](https://user-images.githubusercontent.com/81539406/147208886-4bd5fd34-d73d-4cf6-9460-e8ace511b525.png)
 
-# 설계의 주안점
+## 설계의 주안점
 1. 투자금액, 투자기간, 리스크(변동성) 제약, 투자 종목에 따라 <b>맞춤형</b> 포트폴리오 추천
 2. 투자종목은 직접 선택할 수 있으며, <b>종목을 선택하는 5가지 전략</b>을 제시<br> 
    1) 모멘텀 1개월: 최근 1개월 수익률이 가장 높은 상위 30개 종목을 선택 (상대모멘텀)
@@ -21,12 +22,12 @@
 4. 소액의 직접투자자도 부담 없이 이용 가능한 <b>개인 맞춤형 추천 서비스</b>
 5. 시간과 장소 불문하고 편리하게 활용할 수 있는 <b>웹 서비스</b> 제공
 
-# 기능 개요
+## 기능 개요
 1. 일, 특정 시간 단위의 스크립트 실행
 2. 포트폴리오 만들기 시 결과를 api 로 리턴
 3. 메인웹의 mysql에 데이터를 배치 처리
 
-# 설치되는 패키지
+## 설치되는 패키지
 
 패키지 목록
 1. `pip install PyPortfolioOpt` : cvxpy, numpy, pandas, scipy
@@ -47,7 +48,7 @@
    - lstm 을 이용하는데 사용됨.
 
 
-# Docker 생성 및 컨테이너 실행
+## Docker 생성 및 컨테이너 실행
 ```console
 docker build --force-rm --no-cache -t aistock-stockdata-api .
 docker run --env-file ./.local.env --name aistock-stockdata-api -d -p 26000:5000 -v "%cd%:/app" aistock-stockdata-api
@@ -62,5 +63,5 @@ docker build --force-rm --no-cache -t aistock-stockdata-api .
 docker run --env-file ./.local.env --name aistock-stockdata-api -d -p 26000:5000 -v "%cd%:/app" aistock-stockdata-api
 ```
 
-# 내부적인 코드
+### 내부적인 코드
 * /update_stock_table.py : 데이터베이스 테이블의 종목 목록을 갱신함
